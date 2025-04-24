@@ -1,0 +1,14 @@
+.title-div {
+    text-align: center;
+}
+
+.content-div {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.content-div, form {
+    display: flex;
+    flex-direction: column;
+}

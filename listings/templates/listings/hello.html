@@ -1,11 +1,19 @@
 {% extends "listings/base.html" %}
 
 {% block content %}
-	<h1>Hello Django</h1>
-	<p>Les marques préférées sont :</p>
-	<ul>
-		{% for brand in brands %}
-			<li>{{ brand.name }}</li>
-		{% endfor %}
-	</ul>
+	<div class="title-div">
+		<h1>Hello Django</h1>
+	</div>
+	<div class="content-div">
+		<div>
+			<p>Les marques préférées sont :</p>
+		</div>
+		<div>
+			<ul>
+				{% for brand in brands %}
+					<li>{{ brand.name }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
 {% endblock %}

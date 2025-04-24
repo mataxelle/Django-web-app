@@ -1,11 +1,19 @@
 {% extends "listings/base.html" %}
 
 {% block content %}
-	<h1>Listings</h1>
-	<p>Ceci est une page de liste d'annonces !</p>
-	<ul>
-		{% for brand in brands %}
-			<li>{{ brand.name }}</li>
-		{% endfor %}
-	</ul>
+	<div class="title-div">
+		<h1>Listings</h1>
+	</div>
+	<div class="content-div">
+		<div class="title-div">
+			<p>Ceci est une page de liste d'annonces !</p>
+		</div>
+		<div>
+			<ul>
+				{% for brand in brands %}
+					<li>{{ brand.name }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
 {% endblock %}
