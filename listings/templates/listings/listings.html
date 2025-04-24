@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Liste d'annonces</title>
+	</head>
+	<body>
+		<h1>Listings</h1>
+		<p>Ceci est une page de liste d'annonces !</p>
+		<ul>
+			{% for brand in brands %}
+                <li>{{ brand.name }}</li>
+            {% endfor %}
+		</ul>
+	</body>
+</html>

@@ -1,14 +1,17 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from listings.models import Brand
 
 def hello(request):
-    return HttpResponse('<h1>Hello Django !</h1>')
+    brands = Brand.objects.all()
+    return render(request, 'listings/hello.html', {'brands' : brands})
 
 def about(request):
-    return HttpResponse('<h1>A propos</h1> <p>Ceci est une page à propos !</p>')
+    return render(request, 'listings/about.html')
 
 def contact(request):
-    return HttpResponse('<h1>Contact</h1> <p>Ceci est une page de contact !</p>')
+    return render(request, 'listings/contact.html')
 
 def listings(request):
-    return HttpResponse('<h1>Listings</h1> <p>Ceci est une page de liste d\'annonces !</p>')
+    brands = Brand.objects.all()
+    return render(request, 'listings/listings.html', {'brands' : brands})
