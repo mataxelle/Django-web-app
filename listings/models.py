@@ -3,6 +3,9 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Brand(models.Model):
 
+    def __str__(self):
+        return f'{self.name}'
+
     class Country(models.TextChoices):
         France = 'France'
         Espagne = 'Espagne'
