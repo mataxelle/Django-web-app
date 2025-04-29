@@ -1,0 +1,26 @@
+{% extends "listings/base.html" %}
+
+{% block content %}
+	<div>
+		<h2>Article :
+			{{ listing.name }}</h2>
+	</div>
+
+	<div>
+		<ul>
+			<li>Nom :
+				{{ listing.name }}</li>
+			<li>Pays :
+				{{ listing.description }}</li>
+			<li>Année de création :
+				{{ listing.year }}</li>
+			<li>Active :
+				{{ listing.sold|yesno }}</li>
+			<li>Type :
+				{{ listing.type }}</li>
+			<li>Marque :
+				{{ listing.creator }}</li>
+		</ul>
+	</div>
+
+{% endblock %}

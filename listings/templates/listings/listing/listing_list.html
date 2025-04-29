@@ -1,0 +1,21 @@
+{% extends "listings/base.html" %}
+
+{% block content %}
+<div class="title-div">
+		<h1>Hello Django</h1>
+	</div>
+	<div class="content-div">
+		<div>
+			<p>Tous les articles :</p>
+		</div>
+		<div>
+			<ul>
+				{% for listing in listings %}
+					<li>
+						<a href="{% url 'listing-detail' listing.id %}">{{ listing.name }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+{% endblock %}
