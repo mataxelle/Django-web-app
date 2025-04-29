@@ -11,7 +11,9 @@
 		<div>
 			<ul>
 				{% for brand in brands %}
-					<li>{{ brand.name }}</li>
+					<li>
+						<a href="{% url 'brand-detail' brand.id %}">{{ brand.name }}</a>
+					</li>
 				{% endfor %}
 			</ul>
 		</div>

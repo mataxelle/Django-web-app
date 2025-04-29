@@ -2,13 +2,18 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
-    <title>Merch Brand</title>
-</head>
-<body>
-    {% block content %}{% endblock %}
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{% static 'listings/styles.css' %}"/>
+		<title>Merch Brand</title>
+	</head>
+	<body>
+		<nav>
+			<div>
+				<a href="{% url 'brand-list' %}">Accueil</a>
+			</div>
+		</nav>
+		{% block content %}{% endblock %}
+	</body>
 </html>

@@ -1,0 +1,38 @@
+{% extends "listings/base.html" %}
+
+{% block content %}
+	<div>
+		<h2>Marque :
+			{{ brand.name }}</h2>
+	</div>
+
+	<div>
+		<ul>
+			<li>Nom :
+				{{ brand.name }}</li>
+			<li>Pays :
+				{{ brand.country }}</li>
+			<li>Bio :
+				{{ brand.biography }}</li>
+			<li>Année de création :
+				{{ brand.year_created }}</li>
+			<li>Active :
+				{{ brand.active|yesno }}</li>
+			<li>Page officielle :
+				{% if brand.official_homepage %}
+					<span>{{ brand.official_homepage }}</span>
+				{% else %}
+					<span>Non renseigné</span>
+				{% endif %}
+			</li>
+			<li>Créateur :
+				{% if brand.creator %}
+					<span>{{ brand.creator }}</span>
+				{% else %}
+					<span>Non renseigné</span>
+				{% endif %}
+			</li>
+		</ul>
+	</div>
+
+{% endblock %}
