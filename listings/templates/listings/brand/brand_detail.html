@@ -33,6 +33,21 @@
 				{% endif %}
 			</li>
 		</ul>
+
+		{% if brand.listing_set %}
+			<div>
+				<h4>Articles associés :
+				</h4>
+				<ul>
+					{% for listing in brand.listing_set.all %}
+						<li>{{ listing.name }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% else %}
+			Aucun articles associés
+		{% endif %}
+
 	</div>
 
 {% endblock %}
