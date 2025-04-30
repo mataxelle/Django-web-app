@@ -34,10 +34,9 @@
 			</li>
 		</ul>
 
-		{% if brand.listing_set %}
+		{% if brand.listing_set.all|length > 0 %}
 			<div>
-				<h4>Articles associés :
-				</h4>
+				<h4>Articles associés :</h4>
 				<ul>
 					{% for listing in brand.listing_set.all %}
 						<li>{{ listing.name }}</li>
