@@ -25,6 +25,7 @@ urlpatterns = [
     path('listings/', views.listing_list, name='listing-list'),
     path('listings/<int:id>', views.listing_detail, name='listing-detail'),
     path('about-us/', views.about),
-    path('contact-us/', views.contact),
+    path('contact-us/', views.contact, name='contact'),
+    path('sent-email', views.email_sent, name='email-sent'),
     path('listings/', views.listings),
 ]

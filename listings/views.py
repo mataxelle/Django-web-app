@@ -1,6 +1,8 @@
+from django.core.mail import send_mail
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from listings.models import Brand, Listing
+from listings.forms import ContactForm
 
 def brand_list(request):
     brands = Brand.objects.all()
@@ -22,7 +24,23 @@ def about(request):
     return render(request, 'listings/about.html')
 
 def contact(request):
-    return render(request, 'listings/contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            send_mail(
+                subject=f'Message from {form.cleaned_data['name'] or "anonyme"} via Merchex Contact us Form',
+                message=form.cleaned_data['message'],
+                from_email=form.cleaned_data['email'],
+                recipient_list=['adminTest@merchex.com'],
+            )
+        return redirect('email-sent')
+    else:
+        form = ContactForm()
+    return render(request, 'listings/contact.html', {'form' : form})
+
+def email_sent(request):
+    return render(request, 'listings/email_sent.html')
 
 def listings(request):
     brands = Brand.objects.all()

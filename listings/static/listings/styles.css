@@ -8,7 +8,11 @@
     text-align: center;
 }
 
-.content-div, form {
+.content-div {
     display: flex;
     flex-direction: column;
+}
+
+.errorlist { 
+    margin-bottom: -10px 
 }
