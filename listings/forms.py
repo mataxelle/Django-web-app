@@ -1,5 +1,5 @@
 from django import forms
-from listings.models import Brand
+from listings.models import Brand, Listing
 
 class ContactForm(forms.Form):
     name = forms.CharField()
@@ -10,3 +10,8 @@ class BrandForm(forms.ModelForm):
     class Meta:
         model = Brand
         exclude = ('active', 'official_homepage')
+
+class ListingForm(forms.ModelForm):
+    class Meta:
+        model = Listing
+        exclude = ('sold',)

@@ -2,13 +2,13 @@
 
 {% block content %}
 	<div class="title-div">
-		<h1>Ajouter une marque</h1>
+		<h1>Ajouter un listing</h1>
 	</div>
 	<div class="content-div">
-		<form action="" method="post" novalidate>
+		<form action="" method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
 			<input type="submit" value="Ajouter">
 		</form>
-	</div>
-{% endblock %}
+		</div>
+	{% endblock %}

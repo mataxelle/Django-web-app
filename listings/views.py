@@ -2,7 +2,7 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from listings.models import Brand, Listing
-from listings.forms import BrandForm, ContactForm
+from listings.forms import BrandForm, ListingForm, ContactForm
 
 def brand_list(request):
     brands = Brand.objects.all()
@@ -30,6 +30,17 @@ def listing_list(request):
 def listing_detail(request, id):
     listing = Listing.objects.get(id=id)
     return render(request, 'listings/listing/listing_detail.html', {'listing' : listing})
+
+def listing_add(request):
+    if request.method == 'POST':
+        form = ListingForm(request.POST)
+
+        if form.is_valid():
+            listing = form.save()
+            return redirect('listing-detail', listing.id)
+    else:
+        form = ListingForm()
+    return render(request, 'listings/listing/listing_add.html', {'form' : form})
 
 def about(request):
     return render(request, 'listings/about.html')
