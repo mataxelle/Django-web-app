@@ -10,9 +10,12 @@
 		</div>
 		<div>
 			<ul>
-				{% for brand in brands %}
-					<li>{{ brand.name }}</li>
-				{% endfor %}
+			<li>
+			<a href="{% url 'brand-list' %}">Les marques</a>
+			</li>
+			<li>
+			<a href="{% url 'listing-list' %}">Les articles</a>
+			</li>
 			</ul>
 		</div>
 	</div>

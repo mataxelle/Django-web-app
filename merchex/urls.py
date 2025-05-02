@@ -29,5 +29,5 @@ urlpatterns = [
     path('about-us/', views.about, name='about'),
     path('contact-us/', views.contact, name='contact'),
     path('sent-email', views.email_sent, name='email-sent'),
-    path('listings/', views.listings),
+    path('', views.listings, name='home'),
 ]
