@@ -23,6 +23,19 @@ def brand_add(request):
         form = BrandForm()
     return render(request, 'listings/brand/brand_add.html', {'form' : form})
 
+def brand_edit(request, id):
+    brand = Brand.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = BrandForm(request.POST, instance=brand)
+
+        if form.is_valid():
+            brand = form.save()
+            return redirect('brand-detail', brand.id)
+    else:
+        form = BrandForm(instance=brand)
+    return render(request, 'listings/brand/brand_edit.html', {'form' : form, 'brand' : brand})
+
 def listing_list(request):
     listings = Listing.objects.all()
     return render(request, 'listings/listing/listing_list.html', {'listings' : listings})
