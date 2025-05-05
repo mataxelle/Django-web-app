@@ -23,6 +23,7 @@ urlpatterns = [
     path('brands/', views.brand_list, name='brand-list'),
     path('brands/<int:id>/', views.brand_detail, name='brand-detail'),
     path('brands/<int:id>/edit/', views.brand_edit, name='brand-edit'),
+    path('brands/<int:id>/delete/', views.brand_delete, name='brand-delete'),
     path('brands/add/', views.brand_add, name='brand-add'),
     path('listings/', views.listing_list, name='listing-list'),
     path('listings/<int:id>/', views.listing_detail, name='listing-detail'),

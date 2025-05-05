@@ -4,6 +4,15 @@
 	<div class="title-div">
 		<h1>Les marques</h1>
 	</div>
+	<div>
+		{% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+					<li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</div>
 	<div class="content-div">
 		<div>
 			<p>Les marques préférées sont :</p>

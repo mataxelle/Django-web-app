@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -35,6 +36,15 @@ def brand_edit(request, id):
     else:
         form = BrandForm(instance=brand)
     return render(request, 'listings/brand/brand_edit.html', {'form' : form, 'brand' : brand})
+
+def brand_delete(request, id):
+    brand = Brand.objects.get(id=id)
+
+    if request.method == 'POST':
+        brand.delete()
+        messages.success(request, 'La marque a bien été supprimée.')
+        return redirect('brand-list')
+    return render(request, 'listings/brand/brand_delete.html', {'brand' : brand})
 
 def listing_list(request):
     listings = Listing.objects.all()
