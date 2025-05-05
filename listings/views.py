@@ -30,7 +30,7 @@ def brand_edit(request, id):
         form = BrandForm(request.POST, instance=brand)
 
         if form.is_valid():
-            brand = form.save()
+            form.save()
             return redirect('brand-detail', brand.id)
     else:
         form = BrandForm(instance=brand)
@@ -54,6 +54,19 @@ def listing_add(request):
     else:
         form = ListingForm()
     return render(request, 'listings/listing/listing_add.html', {'form' : form})
+
+def listing_edit(request, id):
+    listing = Listing.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = ListingForm(request.POST, instance=listing)
+
+        if form.is_valid():
+            form.save()
+            return redirect('listing-detail', listing.id)
+    else:
+        form = ListingForm(instance=listing)
+    return render(request, 'listings/listing/listing_edit.html', {'form' : form, 'listing' : listing})
 
 def about(request):
     return render(request, 'listings/about.html')
