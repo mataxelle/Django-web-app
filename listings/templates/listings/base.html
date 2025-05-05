@@ -10,13 +10,13 @@
 	</head>
 	<body>
 		<nav>
-			<div>
-				<a href="{% url 'home' %}">Accueil</a>
-				<a href="{% url 'brand-add' %}">Ajouter marque</a>
-				<a href="{% url 'listing-add' %}">Ajouter listing</a>
-				<a href="{% url 'about' %}">À propos</a>
-				<a href="{% url 'contact' %}">Contact</a>
-			</div>
+		    <ul class="topnav">
+			    <li><a class="{% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Accueil</a></li>
+				<li><a class="{% if request.path == '/brands/add/' %}active{% endif %}" href="{% url 'brand-add' %}">Ajouter marque</a></li>
+				<li><a class="{% if request.path == '/listings/add/' %}active{% endif %}" href="{% url 'listing-add' %}">Ajouter listing</a></li>
+				<li class="right"><a class="{% if request.path == '/about-us/' %}active{% endif %}" href="{% url 'contact' %}">Contact</a></li>
+				<li class="right"><a class="{% if request.path == '/contact-us/' %}active{% endif %}" href="{% url 'about' %}">À propos</a></li>
+            </ul>
 		</nav>
 		{% block content %}{% endblock %}
 	</body>
