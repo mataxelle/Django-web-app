@@ -1,0 +1,20 @@
+{% extends "listings/base.html" %}
+
+{% block content %}
+	<div>
+		<h2>Etes-vous sûr ?</h2>
+	</div>
+
+	<div>
+		<p>Voulez-vous vraiment supprimer l'article : <strong>{{ listing.name }}</strong> ?</p>
+	</div>
+
+	<div>
+		<form action="" method="post">
+			{% csrf_token%}
+			<input type="submit" value="Oui, je suis sûr">
+		</form>
+		<a href="{% url 'listing-detail' listing.id %}">Non, retour à la page précédente</a>
+	</div>
+
+{% endblock %}

@@ -78,6 +78,15 @@ def listing_edit(request, id):
         form = ListingForm(instance=listing)
     return render(request, 'listings/listing/listing_edit.html', {'form' : form, 'listing' : listing})
 
+def listing_delete(request, id):
+    listing = Listing.objects.get(id=id)
+
+    if request.method == 'POST':
+        listing.delete()
+        messages.success(request, 'L\' article a bien été supprimé.')
+        return redirect('listing-list')
+    return render(request, 'listings/listing/listing_delete.html', {'listing' : listing})
+
 def about(request):
     return render(request, 'listings/about.html')
 
