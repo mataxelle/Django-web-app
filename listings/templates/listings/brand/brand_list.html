@@ -14,17 +14,13 @@
 		{% endif %}
 	</div>
 	<div class="content-div">
-		<div>
-			<p>Les marques préférées sont :</p>
+	    <div>
+			<p>Toutes les marques :</p>
 		</div>
-		<div>
-			<ul>
-				{% for brand in brands %}
-					<li>
-						<a href="{% url 'brand-detail' brand.id %}">{{ brand.name }}</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</div>
+		{% for brand in brands %}
+			<div class="box">
+				<a href="{% url 'brand-detail' brand.id %}">{{ brand.name }}</a>
+			</div>
+		{% endfor %}
 	</div>
 {% endblock %}

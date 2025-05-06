@@ -8,24 +8,24 @@
 
 	<div>
 		<ul>
-			<li>Nom :
+			<li><strong>Nom : </strong>
 				{{ listing.name }}</li>
-			<li>Pays :
+			<li><strong>Pays : </strong>
 				{{ listing.description }}</li>
-			<li>Année de création :
+			<li><strong>Année de création : </strong>
 				{{ listing.year }}</li>
-			<li>Active :
+			<li><strong>Active : </strong>
 				{{ listing.sold|yesno }}</li>
-			<li>Type :
+			<li><strong>Type : </strong>
 				{{ listing.type }}</li>
-			<li>Marque :
+			<li><strong>Marque : </strong>
 				{{ listing.creator }}</li>
 		</ul>
 	</div>
 
-	<div>
-	    <a href="{% url 'listing-edit' listing.id %}">Modifier l'article</a>
-		<a href="{% url 'listing-delete' listing.id %}">Supprimer l'article</a>
+	<div class="button-div">
+	    <a class="link-button link-button-edit" href="{% url 'listing-edit' listing.id %}">Modifier l'article</a>
+		<a class="link-button link-button-delete" href="{% url 'listing-delete' listing.id %}">Supprimer l'article</a>
 	</div>
 
 {% endblock %}

@@ -5,18 +5,13 @@
 		<h1>Listings</h1>
 	</div>
 	<div class="content-div">
-		<div class="title-div">
-			<p>Ceci est une page de liste d'annonces !</p>
-		</div>
 		<div>
-			<ul>
-			<li>
-			<a href="{% url 'brand-list' %}">Les marques</a>
-			</li>
-			<li>
-			<a href="{% url 'listing-list' %}">Les articles</a>
-			</li>
-			</ul>
+		    <div class="box">
+                <a href="{% url 'brand-list' %}">Les marques</a>
+			</div>
+			<div class="box">
+			    <a href="{% url 'listing-list' %}">Les articles</a>
+			</div>
 		</div>
 	</div>
 {% endblock %}

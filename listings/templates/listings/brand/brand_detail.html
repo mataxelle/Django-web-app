@@ -1,31 +1,31 @@
 {% extends "listings/base.html" %}
 
 {% block content %}
-	<div>
+	<div class="title-div">
 		<h2>Marque :
 			{{ brand.name }}</h2>
 	</div>
 
 	<div>
 		<ul>
-			<li>Nom :
+			<li><strong>Nom : </strong>
 				{{ brand.name }}</li>
-			<li>Pays :
+			<li><strong>Pays : </strong>
 				{{ brand.country }}</li>
-			<li>Bio :
+			<li><strong>Bio : </strong>
 				{{ brand.biography }}</li>
-			<li>Année de création :
+			<li><strong>Année de création : </strong>
 				{{ brand.year_created }}</li>
-			<li>Active :
+			<li><strong>Active : </strong>
 				{{ brand.active|yesno }}</li>
-			<li>Page officielle :
+			<li><strong>Page officielle : </strong>
 				{% if brand.official_homepage %}
 					<span>{{ brand.official_homepage }}</span>
 				{% else %}
 					<span>Non renseigné</span>
 				{% endif %}
 			</li>
-			<li>Créateur :
+			<li><strong>Créateur : </strong>
 				{% if brand.creator %}
 					<span>{{ brand.creator }}</span>
 				{% else %}
@@ -34,24 +34,24 @@
 			</li>
 		</ul>
 
-		{% if brand.listing_set.all|length > 0 %}
-			<div>
+        <div class="association-div">
+		    {% if brand.listing_set.all|length > 0 %}
 				<h4>Articles associés :</h4>
 				<ul>
 					{% for listing in brand.listing_set.all %}
 						<li>{{ listing.name }}</li>
 					{% endfor %}
 				</ul>
-			</div>
-		{% else %}
-			Aucun articles associés
-		{% endif %}
+		    {% else %}
+			    Aucun articles associés
+		    {% endif %}
+		</div>
 
 	</div>
 
-	<div>
-	    <a href="{% url 'brand-edit' brand.id %}">Modifier la marque</a>
-		<a href="{% url 'brand-delete' brand.id %}">Supprimer la marque</a>
+	<div class="button-div">
+	    <a class="link-button link-button-edit" href="{% url 'brand-edit' brand.id %}">Modifier la marque</a>
+		<a class="link-button link-button-delete" href="{% url 'brand-delete' brand.id %}">Supprimer la marque</a>
 	</div>
 
 {% endblock %}
