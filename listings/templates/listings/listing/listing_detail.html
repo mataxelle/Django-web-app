@@ -19,7 +19,7 @@
 			<li><strong>Type : </strong>
 				{{ listing.type }}</li>
 			<li><strong>Marque : </strong>
-				{{ listing.creator }}</li>
+				<a href="{% url 'brand-detail' listing.brand.id %}">{{ listing.brand }}</a></li>
 		</ul>
 	</div>
 

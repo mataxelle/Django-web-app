@@ -39,7 +39,7 @@
 				<h4>Articles associés :</h4>
 				<ul>
 					{% for listing in brand.listing_set.all %}
-						<li>{{ listing.name }}</li>
+						<li><a href="{% url 'listing-detail' listing.id %}">{{ listing.name }}</a></li>
 					{% endfor %}
 				</ul>
 		    {% else %}
